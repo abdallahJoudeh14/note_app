@@ -1,0 +1,214 @@
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: "poppins";
+}
+body{
+   min-height: 100vh;
+   background-color: rgb(60, 120,250);
+}
+.container{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 25px;
+   padding: 25px;
+}
+.container .addNewNote{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: aliceblue;
+   width: 280px;
+   height: 260px;
+   border-radius: 5px;
+   cursor: pointer;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.container .addNewNote i{
+   padding: 30px;
+   border-radius: 50%;
+   border: 2px dashed rgb(60, 120,250);
+   color: rgb(60, 120,250);
+   font-size: 25px;
+}
+.container .addNewNote span{
+   color: rgb(60, 120,250);
+   margin-top: 15px;
+}
+
+.container .note{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   position: relative;
+   padding: 15px;
+   background-color: aliceblue;
+   max-width: 280px;
+   width: 280px;
+   height: 260px;
+   border-radius: 5px;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+}
+.container .note .details {
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+
+}
+.container .note .details .title{
+   font-size: 22px;
+   font-weight: 600;
+   margin-bottom: 10px;
+}
+.container .note .details .description{
+   color: #777;
+   overflow-y: auto;
+}
+.container .note .details .description::-webkit-scrollbar{
+   width: 5px;
+}
+.container .note .description::-webkit-scrollbar-thumb{
+   border-radius: 10px;
+   background-color: rgb(60, 120,250);
+}
+.container .note .dateEdit{
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   border-top: 1px solid #acacac;
+   padding-top: 10px;
+   color: #777;
+}
+
+.container .note .dateEdit .dots{
+   position: relative;
+   cursor: pointer;
+}
+.container .note .dateEdit .dots .editDelete{
+   position: absolute;
+   top: 0;
+   transform:translate(-100%,-100%) scale(0);
+   transform-origin: right bottom;
+   pointer-events: none;
+   width: 100px;
+   border-radius: 5px;
+   background-color: aliceblue;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease;
+   overflow: hidden;
+}
+.container .note .dateEdit .dots.active .editDelete{
+   pointer-events: all;
+   transform:translate(-100%,-100%) scale(1);
+}
+.container .note .dateEdit .dots .editDelete :where(.edit , .delete){
+   padding: 8px 10px;
+   transition: all 0.2s;
+}
+.container .note .dateEdit .dots .editDelete :where(.edit , .delete):hover{
+   background-color: #7777772d;
+}
+.addnoteform{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.2);
+   padding: 0 15px;
+}
+.addNoteFormContainer{
+   max-width: 380px;
+   width: 100%;
+   background-color: aliceblue;
+   border-radius: 5px;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addNoteFormContainer header{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px 20px;
+   position: relative;
+}
+
+.addNoteFormContainer header::after{
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #acacac;
+}
+.addNoteFormContainer header h2{
+   font-weight: 600;
+   color: #222;
+}
+.addNoteFormContainer header i{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 20px;
+   cursor: pointer;
+   color: #555;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   transition: all 0.3s;
+}
+.addNoteFormContainer header i:hover{
+   background-color: #999;
+}
+.addNoteFormContainer .form{
+   display: flex;
+   flex-direction: column;
+   row-gap: 20px;
+   padding: 15px 20px;
+}
+.addNoteFormContainer .form :where(input[type = "text"] , textarea){
+   width: 100%;
+   height: 45px;
+   border: 1px solid #444;
+   border-radius: 5px;
+   padding: 10px;
+   outline: none;
+   margin-top: 5px;
+   font-size: 16px;
+   transition: all 0.3s;
+}
+.addNoteFormContainer .form :where(input , textarea):focus{
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addNoteFormContainer .form textarea{
+   height: 150px;
+   resize: none;
+   
+}
+.addNoteFormContainer .form input[type = submit]{
+   width: 100%;
+   height: 45px;
+   background-color: rgb(60, 120,250);
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 16px;
+   cursor: pointer;
+   transition: all 0.1s;
+}
+.addNoteFormContainer .form input[type = submit]:hover{
+   background-color: rgb(50, 115,250);
+}
+
+@media (max-width : 652px) {
+   .container{
+      justify-content: center;
+   }
+}
